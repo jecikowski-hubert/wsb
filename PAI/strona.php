@@ -6,7 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-        test
+<table>
+
+</table>
 
 
 </body>
