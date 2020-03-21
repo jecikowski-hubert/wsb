@@ -7,23 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<table>
+<table style="height: 207px;" width="479">
+<tbody>
 <tr>
-    <td>1.1</td>
+<td rowspan="2">1.1</td>
+<td>1.2</td>
 </tr>
 <tr>
-    <td>1.2</td>
+<td rowspan="2">2.1</td>
 </tr>
 <tr>
-    <td>2.2</td>
+<td>3.1</td>
 </tr>
 <tr>
-    <td>3.1</td>
+<td colspan="2">4.1</td>
 </tr>
-<tr>
-    <td>4.1</td>
-</tr>
-
+</tbody>
 </table>
 
 
