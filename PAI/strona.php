@@ -6,10 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <table>
-
-
-</table>
+        test
 
 
 </body>
