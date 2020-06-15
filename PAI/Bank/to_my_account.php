@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="PL">
 <?php include ('./head.html'); ?>
 <body>

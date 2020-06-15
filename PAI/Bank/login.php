@@ -30,12 +30,41 @@
 				header('Location: logged.php');
 				
 			} 
+
 			else 
 			{
-				$_SESSION['komunikat'] = 'Błędny login lub hasło';
-				header('Location: login.html');
+					if ($rezultat = $polaczenie->query(
+					sprintf("SELECT * FROM employee WHERE username='%s' AND password='%s'",
+					mysqli_real_escape_string($polaczenie,$username),
+					mysqli_real_escape_string($polaczenie,$password))))
+					{
+						$ilu_userow = $rezultat->num_rows;
+						if($ilu_userow>0)
+						{
+							$_SESSION['zalogowany'] = true;
+							
+							$wiersz = $rezultat->fetch_assoc();
+							$_SESSION['id'] = $wiersz['id'];
+							$_SESSION['uzytkownik'] = $wiersz['username'];
+							$_SESSION['imie'] = $wiersz['name'];
+							$_SESSION['nazwisko'] = $wiersz['surname'];
+							$_SESSION['email'] = $wiersz['email'];
+							$_SESSION['user_type'] = $wiersz['user_type'];
+			
+							unset($_SESSION['komunikat']);
+							$rezultat->free_result();
+							header('Location: logged_employee.php');
+							
+						} 
+						else 
+						{
+							$_SESSION['komunikat'] = 'Błędny login lub hasło';
+							header('Location: login.html');
+						}
+					}
 			}
 		}
+		
 		
 		$polaczenie->close();
 	
