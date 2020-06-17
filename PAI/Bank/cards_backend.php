@@ -18,36 +18,35 @@ if(($do == 1) || ($do == 2)) {
         '$currency', '$insurance', '$customer')"))
 		{
             $_SESSION['komunikat']="Dodano kartę";
-            echo "jest ok";
 		}
 		else
 		{
+			
             $_SESSION['komunikat']="Wystąpił błąd";
-            echo "błąd";
 		}
 	}
 	
 	if($do == 2) {
-		$id = $_POST['id'];
-		if($polaczenie->query("UPDATE `card` SET `skrot` = '$skrot', `pelna` = '$pelna' WHERE `przedmiot`.`id_przedmiot` = $id_przedmiot"))
+		$id = $_POST['id_card'];
+		if($polaczenie->query("UPDATE `card` SET `name` = '$name', `number` = '$number', `status` = '$status', `currency` = '$currency', `insurance` = '$insurance', `account_id` = '$customer' WHERE `id` = $id"))
 		{
-			$_SESSION['komunikat']="Edycja przedmiotu przebiegła pomyślnie";
+			$_SESSION['komunikat']="Edycja karty przebiegła pomyślnie";
 		}
 		else
 		{
-			$_SESSION['komunikat']="Edycja przedmiotu zakończona niepowodzeniem";
+			$_SESSION['komunikat']="Edycja karty zakończona niepowodzeniem";
 		}
 	}
 }
 
 	if($do == 3) {
-		$id_przedmiot = $_POST['id_przedmiot'];
+		$id = $_POST['id_card'];
 		
-		if($polaczenie->query("DELETE FROM `przedmiot` WHERE `id_przedmiot` = $id_przedmiot")) {
-			$_SESSION['komunikat'] = "Usunięto przedmiot";
+		if($polaczenie->query("DELETE FROM `card` WHERE `id` = $id")) {
+			$_SESSION['komunikat'] = "Usunięto kartę";
 		}
 		else {
-			$_SESSION['komunikat']="Nie udało się usunąć przedmiotu";
+			$_SESSION['komunikat']="Nie udało się usunąć karty";
 		}
     }
     
