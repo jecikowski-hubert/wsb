@@ -12,6 +12,15 @@
                     <li class="nav-item">
                       <a class="nav-link" href="./logged_employee.php">Pulpit</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./customers.php">Klienci</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./accounts.php">Konta</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./cards.php">Karty</a>
+                    </li>
                   </ul>
                   <a href="./logout.php" class="btn btn-secondary">Wyloguj</a>
                 </div>
@@ -21,7 +30,14 @@
 					
 			<?php
 				session_start();
-				require_once "connect.php";
+                require_once "connect.php";
+                if(isset($_SESSION['komunikat']))
+                {
+                    echo'<div class="alert alert-warning">
+                        '.$_SESSION['komunikat'].'
+                    </div>';
+                    unset($_SESSION['komunikat']);
+                }
                 $account_list = $polaczenie->query("
                     SELECT 
                     a.id, a.name, a.number, a.funds, a.currency, c.name AS `imie`, c.surname AS `nazwisko`
@@ -152,6 +168,7 @@
                     <input type = "hidden" name = "do" value = "3">
                     <input type = "hidden" name = "id_account" value = "<?php echo $id_account; ?>">
                     <input type = "submit" class = "btn btn-danger" value = "Potwierdź usunięcie konta">
+                    <br><br>
                 </form>
                 <?php
                     }
