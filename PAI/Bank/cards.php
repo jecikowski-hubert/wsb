@@ -12,6 +12,15 @@
                     <li class="nav-item">
                       <a class="nav-link" href="./logged_employee.php">Pulpit</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./customers.php">Klienci</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./accounts.php">Konta</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./cards.php">Karty</a>
+                    </li>
                   </ul>
                   <a href="./logout.php" class="btn btn-secondary">Wyloguj</a>
                 </div>
@@ -20,8 +29,17 @@
 				<div class="main-container">
 					
 			<?php
-				session_start();
-				require_once "connect.php";
+                session_start();
+
+                if(isset($_SESSION['komunikat']))
+                {
+                    echo'<div class="alert alert-warning">
+                        '.$_SESSION['komunikat'].'
+                    </div>';
+                    unset($_SESSION['komunikat']);
+                }
+
+                require_once "connect.php";
                 $cards_list = $polaczenie->query("
                     SELECT 
                     c.id,
@@ -167,6 +185,7 @@
                     <input type = "hidden" name = "do" value = "3">
                     <input type = "hidden" name = "id_card" value = "<?php echo $id_card; ?>">
                     <input type = "submit" class = "btn btn-danger" value = "Potwierdź usunięcie karty">
+                    <br><br>
                 </form>
                 <?php
                     }

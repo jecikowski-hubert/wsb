@@ -20,6 +20,8 @@
 				
 				$wiersz = $rezultat->fetch_assoc();
 				$_SESSION['id'] = $wiersz['id'];
+				$id_customer = $_SESSION['id'];
+				$polaczenie->query("UPDATE `customer` SET `last_login` = CURRENT_TIMESTAMP() WHERE `id` = $id_customer");
 				$_SESSION['uzytkownik'] = $wiersz['username'];
 				$_SESSION['imie'] = $wiersz['name'];
 				$_SESSION['nazwisko'] = $wiersz['surname'];
@@ -42,7 +44,6 @@
 						if($ilu_userow>0)
 						{
 							$_SESSION['zalogowany'] = true;
-							
 							$wiersz = $rezultat->fetch_assoc();
 							$_SESSION['id'] = $wiersz['id'];
 							$_SESSION['uzytkownik'] = $wiersz['username'];

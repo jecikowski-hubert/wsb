@@ -38,7 +38,7 @@
 					WHERE c.id = ".$_SESSION['id']);
 					
 				$karty_klienta = $polaczenie->query("
-					SELECT c.name, SUBSTRING(c.number, -4) AS `Numer_karty`
+					SELECT c.name, c.number AS `Numer_karty`
 					FROM card c 
 						JOIN account a ON a.id = c.account_id
 						JOIN account_to_customer atc ON atc.id_account = a.id
@@ -96,7 +96,7 @@
 				{
 					echo '<tr>
 					<td>'.$kar_kl['name'].'</td>
-					<td> **** **** **** '.$kar_kl['Numer_karty'].'</td>
+					<td>'.$kar_kl['Numer_karty'].'</td>
 					</tr>
 					';
 				}

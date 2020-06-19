@@ -13,6 +13,15 @@
                     <li class="nav-item">
                       <a class="nav-link" href="./logged_employee.php">Pulpit</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./customers.php">Klienci</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./accounts.php">Konta</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./cards.php">Karty</a>
+                    </li>
                   </ul>
                   <a href="./logout.php" class="btn btn-secondary">Wyloguj</a>
                 </div>
@@ -60,7 +69,7 @@
                 switch ($choice) 
                 {
                     case Klienci:
-                        header("Location: ./clients.php");
+                        header("Location: ./customers.php");
                         break;
                     case Karty:
                         header("Location: ./cards.php");

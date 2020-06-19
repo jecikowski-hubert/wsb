@@ -143,7 +143,7 @@ td, th {
     padding: 0;
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */@media print {
-    *, : after, :before {
+    *, :after, :before {
     color: #000!important;
     text-shadow: none!important;
     background: 0 0!important;
@@ -3208,6 +3208,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 }
 .navbar-nav>li {
     float: left;
+    margin-left: 50px;
 }
 .navbar-nav>li>a {
     padding-top: 15px;

@@ -89,7 +89,39 @@
 								$number = $number1." ".$number2." ".$number3." ".$number4." ".$number5." ".$number6;
 						?>
 								<option data-tokens="<?php echo $number.' | '.$kon_kl['imie'].' '. $kon_kl['surname'] ?>" value="<?php echo $kon_kl['id']; ?>">
-									<?php echo strtoupper($number.' | '.$kon_kl['imie'].' '. $kon_kl['surname']) ; ?>
+									<?php echo strtoupper($number.' | '.$kon_kl['imie'].' '. $kon_kl['surname'].'  |  '); 
+									switch ($number2) {
+										case 1010: echo "NBP"; break;
+										case 1020: echo "PKO BP"; break;
+										case 1030: echo "Bank Handlowy (Citi Handlowy)"; break;
+										case 1050: echo "ING Bank Śląski"; break;
+										case 1060: echo "Bank BPH"; break;
+										case 1090: echo "Santander Bank Polska"; break;
+										case 1130: echo "BGK"; break;
+										case 1140: echo "mBank"; break;
+										case 1160: echo "Bank Millenium"; break;
+										case 1240: echo "Pekao SA"; break;
+										case 1280: echo "HSBC"; break;
+										case 1320: echo "Bank Pocztowy"; break;
+										case 1540: echo "BOŚ Bank"; break;
+										case 1580: echo "Mercedes-Benz Bank Polska"; break;
+										case 1610: echo "SGB - Bank"; break;
+										case 1680: echo "Plus Bank"; break;
+										case 1840: echo "Societe Generale"; break;
+										case 1870: echo "Nest Bank"; break;
+										case 1930: echo "Bank Polskiej Spódzielczości"; break;
+										case 1940: echo "Credit Agricole Bank Polska"; break;
+										case 1950: echo "Idea Bank"; break;
+										case 2030: echo "BNP Paribas"; break;
+										case 2120: echo "Santander Consumer Bank"; break;
+										case 2160: echo "Toyota Bank"; break;
+										case 2190: echo "DNB Bank Polska"; break;
+										case 2480: echo "Getin Noble Bank"; break;
+										case 2490: echo "Alior Bank"; break;
+										default: echo "Nie rozpoznano banku!</font>";
+									}
+									
+									?>
 								</option>
 						<?php
 							}
