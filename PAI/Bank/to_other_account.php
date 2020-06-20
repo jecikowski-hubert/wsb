@@ -29,6 +29,13 @@
 			<?php
 				session_start();
 				require_once "connect.php";
+				if(isset($_SESSION['komunikat']))
+                {
+                    echo'<div class="alert alert-warning">
+                        '.$_SESSION['komunikat'].'
+                    </div>';
+                    unset($_SESSION['komunikat']);
+                }
 				$konta_klienta = $polaczenie->query("
 					SELECT a.id, a.name, a.number, a.funds, a.currency
 					FROM account a 

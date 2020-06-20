@@ -14,7 +14,7 @@
 				{
 					if($polaczenie->query("UPDATE `account` SET funds = funds + '$value' WHERE id = '$receiver';"))
 					{
-						echo "Wykonano przelew";
+						$_SESSION['komunikat'] = "Wykonano przelew";
 					}
 				}
 				
