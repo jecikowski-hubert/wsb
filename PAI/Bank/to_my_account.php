@@ -34,7 +34,11 @@
                         '.$_SESSION['komunikat'].'
                     </div>';
                     unset($_SESSION['komunikat']);
-                }
+				}
+				if(!isset($_SESSION['zalogowany']))
+				{
+					header('Location: ./login.html');
+				}
 				$konta_klienta = $polaczenie->query("
 					SELECT a.id, a.name, a.number, a.funds, a.currency
 					FROM account a 

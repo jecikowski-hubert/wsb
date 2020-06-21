@@ -38,6 +38,10 @@
                     </div>';
                     unset($_SESSION['komunikat']);
                 }
+                if(!isset($_SESSION['zalogowany']))
+				{
+					header('Location: ./login.html');
+				}
 
                 require_once "connect.php";
                 $cards_list = $polaczenie->query("

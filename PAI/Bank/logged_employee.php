@@ -32,6 +32,10 @@
                 <?php
                     session_start();
                     require_once "connect.php";
+                    if(!isset($_SESSION['zalogowany']))
+				    {
+					header('Location: ./login.html');
+				    }
                     $employee = $polaczenie->query("SELECT * FROM employee WHERE id = ".$_SESSION['id']);
                     while($e = $employee->fetch_assoc())
                     {

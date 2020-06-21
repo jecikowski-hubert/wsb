@@ -29,6 +29,10 @@
 			<?php
 				session_start();
 				require_once "connect.php";
+				if(!isset($_SESSION['zalogowany']))
+				{
+					header('Location: ./login.html');
+				}
 				if(isset($_SESSION['komunikat']))
                 {
                     echo'<div class="alert alert-warning">

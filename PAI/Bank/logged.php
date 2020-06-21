@@ -29,6 +29,10 @@
 			<?php
 				session_start();
 				require_once "connect.php";
+				if(!isset($_SESSION['zalogowany']))
+				{
+					header('Location: ./login.html');
+				}
 				$dane_klienta = $polaczenie->query("SELECT * FROM customer WHERE id = ".$_SESSION['id']);
 				$konta_klienta = $polaczenie->query("
 					SELECT a.name, a.number, a.funds, a.currency
